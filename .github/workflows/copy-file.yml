@@ -10,25 +10,21 @@ jobs:
       - name: 'Checkout the main branch'
         uses: actions/checkout@v2
         with:
-          ref: main-test
-
+          ref: main
       - name: 'Copy file'
         run: |
-          git checkout main --test-novedades.txt
-
-      # - name: 'Checkout the main-test'
-      #   run: |
-      #     git checkout main-test
-
-      # - name: 'Add and commit changes'
-      #   run: |
-      #     git config --global user.email rpalos@scalperscompany.com
-      #     git config --global user.name Rafael Palos
-      #     git config --global user.password .Bormujos2024
-      #     git init
-      #     git add test-novedades2.txt
-      #     git commit -m "Copy file from main-test"
-
-      # - name: 'Push changes'
-      #   run: |
-      #     git push origin main-test
+          cp test-novedades test-novedades2
+      - name: 'Checkout the main-test'
+        run: |
+          git checkout main-test
+      - name: 'Add and commit changes'
+        run: |
+          git config --global user.email rpalos@scalperscompany.com
+          git config --global user.name Rafael Palos
+          git config --global user.password .Bormujos2024
+          git init
+          git add test-novedades2.txt
+          git commit -m "Copy file from main-test"
+      - name: 'Push changes'
+        run: |
+          git push origin main-test
