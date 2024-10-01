@@ -14,7 +14,7 @@ jobs:
 
       - name: 'Copy file'
         run: |
-          cp test-novedades test-novedades
+          cp test-novedades test-novedades2
 
       - name: 'Checkout the main-test'
         run: |
@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --local user.email "rpalos@scalperscompany.com"
           git config --local user.name "Rafael Palos"
-          git add test-novedades
+          git add test-novedades2
           git commit -m "Copy file from main branch"
 
       - name: 'Push changes'
