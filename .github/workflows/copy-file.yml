@@ -14,7 +14,7 @@ jobs:
 
       - name: 'Copy file'
         run: |
-          git checkout main -- test-novedades.txt
+          git checkout main --test-novedades.txt
 
       # - name: 'Checkout the main-test'
       #   run: |
