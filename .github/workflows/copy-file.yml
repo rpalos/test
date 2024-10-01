@@ -22,8 +22,8 @@ jobs:
 
       - name: 'Add and commit changes'
         run: |
-          git config --local user.email "rpalos@scalperscompany.com"
-          git config --local user.name "Rafael Palos"
+          git config --global user.email "rpalos@scalperscompany.com"
+          git config --global user.name "Rafael Palos"
           git add test-novedades2
           git commit -m "Copy file from main branch"
 
