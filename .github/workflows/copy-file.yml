@@ -18,7 +18,7 @@ jobs:
 
       - name: 'Checkout the main-test'
         run: |
-          git checkout -b main-test
+          git checkout main-test
 
       - name: 'Add and commit changes'
         run: |
