@@ -45,4 +45,4 @@ jobs:
           git add test-novedades.txt
           git status
           git commit -m "Update file from main branch"
-          git push origin main-test
+          git push
