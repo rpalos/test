@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.email rpalos@scalperscompany.com
           git config --global user.name Rafael Palos
-          git config --list
+          git config --global user.password .Bormujos2024
           git add test-novedades2
           git commit -m "Copy file from main branch"
 
