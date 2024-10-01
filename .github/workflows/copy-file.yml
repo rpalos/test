@@ -32,7 +32,7 @@ jobs:
         if: env.copy == 'true'
         run: |
           ls
-          cp test-novedades.txt main-test/test-novedades2.txt
+          cp test-novedades main-test/test-novedades2
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
