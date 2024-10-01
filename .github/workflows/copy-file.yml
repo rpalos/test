@@ -25,8 +25,9 @@ jobs:
           git config --global user.email rpalos@scalperscompany.com
           git config --global user.name Rafael Palos
           git config --global user.password .Bormujos2024
+          git init
           git add test-novedades2
-          git commit -m "Copy file from main branch"
+          git commit -m "Copy file from main-test"
 
       - name: 'Push changes'
         run: |
