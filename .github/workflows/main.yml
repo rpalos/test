@@ -1,5 +1,4 @@
-yaml
-name: Copy File to Another Branch
+name: Copy File
 
 on:
   push:
@@ -34,3 +33,4 @@ jobs:
       - name: Push changes
         run: |
           git push origin main-test
+<
