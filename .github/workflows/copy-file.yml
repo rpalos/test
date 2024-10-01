@@ -42,5 +42,5 @@ jobs:
           git config --local user.name Rafael Palos
           git add .
           git status
-          # git commit -m "Update file from main branch"
-          # git push origin main-test
+          git commit -m "Update file from main branch"
+          git push origin main-test
