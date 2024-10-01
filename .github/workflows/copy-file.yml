@@ -31,14 +31,13 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
-          ls
           cp test-novedades main-test/test-novedades2
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
         if: env.copy == 'true'
         run: |
-          cd main-test
+          ls
           git config --local user.email rpalos@scalperscompany.com
           git config --local user.name Rafael Palos
           git add path/to/test-novedades.txt
