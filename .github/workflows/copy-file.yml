@@ -40,6 +40,7 @@ jobs:
           ls
           git config --local user.email rpalos@scalperscompany.com
           git config --local user.name Rafael Palos
-          git add test-novedades
-          git commit -m "Update file from main branch"
-          git push origin main-test
+          git add .
+          git status
+          # git commit -m "Update file from main branch"
+          # git push origin main-test
