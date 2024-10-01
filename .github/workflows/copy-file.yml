@@ -42,7 +42,7 @@ jobs:
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           git rm --cached main-test
-          git add .
+          git add test-novedades.txt
           git status
           git commit -m "Update file from main branch"
           git push origin main-test
