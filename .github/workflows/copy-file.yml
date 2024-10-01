@@ -1,30 +1,45 @@
-name: Copy File
+name: 'Copy File if Different'
 on:
   push:
     branches:
       - main
 jobs:
-  copy-file:
+  check-and-copy:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout the main branch'
+      - name: 'Checkout main branch'
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: 'Checkout main-test branch'
         uses: actions/checkout@v2
         with:
           ref: main-test
-      - name: 'Copy file'
+          path: main-test
+
+      - name: 'Compare files'
+        id: compare
         run: |
-          cp test-novedades test-novedades2
-      - name: 'Checkout the main-test'
+          if ! cmp -s path/to/test-novedades.txt main-test/path/to/test-novedades2.txt; then
+            echo "Files are different"
+            echo "copy=true" >> $GITHUB_ENV
+          else
+            echo "Files are the same"
+            echo "copy=false" >> $GITHUB_ENV
+          fi
+      - name: 'Copy file if different'
+        if: env.copy == 'true'
         run: |
-          git checkout main-test
-      - name: 'Add and commit changes'
+          cp path/to/test-novedades.txt main-test/path/to/test-novedades2.txt
+          echo "File copied to main-test branch"
+
+      - name: 'Commit and push changes'
+        if: env.copy == 'true'
         run: |
-          git config --global user.email rpalos@scalperscompany.com
-          git config --global user.name Rafael Palos
-          git config --global user.password .Bormujos2024
-          git init
-          git add test-novedades2.txt
-          git commit -m "Copy file from main-test"
-      - name: 'Push changes'
-        run: |
+          cd main-test
+          git config --local user.email rpalos@scalperscompany.com
+          git config --local user.name Rafael Palos
+          git add path/to/test-novedades.txt
+          git commit -m "Update file from main branch"
           git push origin main-test
