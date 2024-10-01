@@ -1,36 +1,32 @@
 name: Copy File
-
 on:
   push:
     branches:
-      - main  # Cambia esto a la rama que desees
-
+      - main
 jobs:
   copy-file:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the main branch
+      - name: 'Checkout the main branch'
         uses: actions/checkout@v2
         with:
           ref: main-test  # Cambia esto a la rama de origen
 
-      - name: Copy file
+      - name: 'Copy file'
         run: |
           cp test-novedades test-novedades
 
-      - name: Checkout the main-test
+      - name: 'Checkout the main-test'
         run: |
           git checkout -b main-test
 
-      - name: Add and commit changes
+      - name: 'Add and commit changes'
         run: |
           git config --local user.email "rpalos@scalperscompany.com"
           git config --local user.name "Rafael Palos"
           git add test-novedades
           git commit -m "Copy file from main branch"
 
-      - name: Push changes
+      - name: 'Push changes'
         run: |
           git push origin main-test
-<
