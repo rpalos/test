@@ -23,7 +23,7 @@ jobs:
             echo "Files are different"
             echo "copy=true" >> $GITHUB_ENV
             git branch
-            git config --global --list
+            git config --list
           else
             echo "Files are the same"
             echo "copy=false" >> $GITHUB_ENV
