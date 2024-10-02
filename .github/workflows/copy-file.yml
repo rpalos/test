@@ -21,7 +21,7 @@ jobs:
       - name: 'Compare files'
         id: compare
         run: |
-          if ! cmp -s path/to/test-novedades.txt main-test/path/to/test-novedades2.txt; then
+          if ! cmp -s path/to/templates/collection.novedades-hombre-D2022.json main-test/path/to/templates/collection.novedades-hombre-D2022.json; then
             echo "Files are different"
             echo "copy=true" >> $GITHUB_ENV
           else
@@ -31,7 +31,7 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
-          cp test-novedades main-test/test-novedades2
+          cp main/collection.novedades-hombre-D2022.json main-test/collection.novedades-hombre-D2022.json
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
@@ -42,7 +42,7 @@ jobs:
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           # git rm --cached main-test
-          git add test-novedades.txt
+          git add collection.novedades-hombre-D2022.json
           git status
           git commit -m "Update file from main branch"
           git push
