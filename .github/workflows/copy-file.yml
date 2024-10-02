@@ -29,6 +29,7 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
+          git branch
           cp templates/collection.novedades-hombre-D2022.json main-test/templates/collection.novedades-hombre-D2022.json
           echo "File copied to main-test branch"
       - name: 'Config Git'
