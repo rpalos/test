@@ -37,12 +37,12 @@ jobs:
       - name: 'Commit and push changes'
         if: env.copy == 'true'
         run: |
-          ls
+          ls templates
           git config --local user.email rpalos@scalperscompany.com
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           # git rm --cached main-test
-          git add templates/collection.novedades-hombre-D2022
+          git add templates/collection.novedades-hombre-D2022.json
           git status
           git commit -m "Update file from main branch"
           git push
