@@ -4,54 +4,22 @@ on:
     branches:
       - main
 jobs:
-  check-and-copy:
+  copy:
+    name: Copy
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout main branch'
-        uses: actions/checkout@v2
-        with:
-          ref: main
-      - name: 'Checkout main-test branch'
-        uses: actions/checkout@v2
-        with:
-          ref: main-test
-          path: main-test
-      - name: 'Compare files'
-        id: compare
-        run: |
-          if ! cmp -s path/to/templates/collection.novedades-hombre-D2022.json main-test/path/to/templates/collection.novedades-hombre-D2022.json; then
-            echo "Files are different"
-            echo "copy=true" >> $GITHUB_ENV
-            git branch
-            git config --list
-          else
-            echo "Files are the same"
-            echo "copy=false" >> $GITHUB_ENV
-          fi
-      - name: 'Copy file if different'
-        if: env.copy == 'true'
-        uses: planetoftheweb/copy-to-branches@v1
+      - uses: actions/checkout@v2
+      - name: copy
         env:
-          key: main
-          branches: main-test
-          files: templates/collection.novedades-hombre-D2022.json
-      - name: 'Config Git'
-        if: env.copy == 'true'
+          SRC_PATH: 'templates/collection.novedades-hombre-D2022.json'
+          TARGET_BRANCH: 'main-test'
         run: |
-          git config --local user.email rpalos@scalperscompany.com
-          git config --local user.name Rafael Palos
-          git config --local user.password .Bormujos2024
-      - name: 'Checkout main-test branch'
-        uses: actions/checkout@v2
-        with:
-          ref: main-test
-      - name: 'Commit and push changes'
-        if: env.copy == 'true'
-        run: |
-          git branch
-          git init
-          git status
-          # git add templates/collection.novedades-hombre-D2022.json
-          # git status
-          # git commit -m "Update file from main branch"
-          # git push
+          files=$(find $SRC_PATH -type f) # get the file list
+          git config --global user.name rpalos
+          git config --global user.email rpalos@scalperscompany.com
+          git fetch                         # fetch branches
+          git checkout $TARGET_BRANCH       # checkout to your branch
+          git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
+          git add -A
+          git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
+          git push origin $TARGET_BRANCH # push to remote branch
