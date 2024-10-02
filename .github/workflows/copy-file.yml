@@ -28,10 +28,11 @@ jobs:
           fi
       - name: 'Copy file if different'
         if: env.copy == 'true'
-        run: |
-          git branch
-          cp templates/collection.novedades-hombre-D2022.json main-test/templates/collection.novedades-hombre-D2022.json
-          echo "File copied to main-test branch"
+        uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          branches: main-test
+          files: templates/collection.novedades-hombre-D2022.json
       - name: 'Config Git'
         if: env.copy == 'true'
         run: |
