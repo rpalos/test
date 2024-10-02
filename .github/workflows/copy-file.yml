@@ -33,17 +33,24 @@ jobs:
         run: |
           cp templates/collection.novedades-hombre-D2022.json main-test/templates/collection.novedades-hombre-D2022.json
           echo "File copied to main-test branch"
-
-      - name: 'Commit and push changes'
+      - name: 'Config Git'
         if: env.copy == 'true'
         run: |
-          ls templates
+          git config --local user.email rpalos@scalperscompany.com
+          git config --local user.name Rafael Palos
+          git config --local user.password .Bormujos2024
+      - name: 'Checkout main-test branch'
+        uses: actions/checkout@v2
+        with:
+          ref: main-test
+      - name: 'Config Git'
+        if: env.copy == 'true'
+        run: |
           git config --local user.email rpalos@scalperscompany.com
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           # git rm --cached main-test
           git init
-          git checkout main-test
           git add templates/collection.novedades-hombre-D2022.json
           git status
           git commit -m "Update file from main branch"
