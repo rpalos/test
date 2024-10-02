@@ -31,6 +31,7 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
+          ls
           cp collection.novedades-hombre-D2022 main-test/collection.novedades-hombre-D2022
           echo "File copied to main-test branch"
 
