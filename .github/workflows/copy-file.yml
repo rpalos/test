@@ -31,7 +31,7 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
-          cp main/collection.novedades-hombre-D2022.json main-test/collection.novedades-hombre-D2022.json
+          cp collection.novedades-hombre-D2022.json main-test/collection.novedades-hombre-D2022.json
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
