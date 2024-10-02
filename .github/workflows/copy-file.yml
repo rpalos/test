@@ -31,8 +31,8 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
-          ls
-          cp collection.novedades-hombre-D2022 main-test/collection.novedades-hombre-D2022
+          ls templates
+          cp templates/collection.novedades-hombre-D2022 templates/main-test/collection.novedades-hombre-D2022
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
@@ -43,7 +43,7 @@ jobs:
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           # git rm --cached main-test
-          git add collection.novedades-hombre-D2022
+          git add templates/collection.novedades-hombre-D2022
           git status
           git commit -m "Update file from main branch"
           git push
