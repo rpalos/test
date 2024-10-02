@@ -36,19 +36,18 @@ jobs:
       - name: 'Config Git'
         if: env.copy == 'true'
         run: |
+          git branch
           git config --local user.email rpalos@scalperscompany.com
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
-      - name: 'Checkout main-test branch'
-        uses: actions/checkout@v2
-        with:
-          ref: main-test
-      - name: 'Commit and push changes'
-        if: env.copy == 'true'
-        run: |
           # git rm --cached main-test
           git init
           git add templates/collection.novedades-hombre-D2022.json
           git status
           git commit -m "Update file from main branch"
           git push
+      - name: 'Checkout main-test branch'
+        uses: actions/checkout@v2
+        with:
+          ref: main-test
+
