@@ -48,7 +48,7 @@ jobs:
           git branch
           git init
           git status
-          git add templates/collection.novedades-hombre-D2022.json
-          git status
-          git commit -m "Update file from main branch"
-          git push
+          # git add templates/collection.novedades-hombre-D2022.json
+          # git status
+          # git commit -m "Update file from main branch"
+          # git push
