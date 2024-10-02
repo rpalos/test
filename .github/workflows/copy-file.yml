@@ -12,7 +12,7 @@ jobs:
       - name: copy
         env:
           SRC_PATH: 'templates/collection.novedades-hombre-D2022.json'
-          TARGET_BRANCH: 'main-test main-es main-pt- main-be'
+          TARGET_BRANCH: 'main-test'
         run: |
           files=$(find $SRC_PATH -type f) # get the file list
           git config --global user.name rpalos
