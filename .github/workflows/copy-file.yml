@@ -22,6 +22,8 @@ jobs:
           if ! cmp -s path/to/templates/collection.novedades-hombre-D2022.json main-test/path/to/templates/collection.novedades-hombre-D2022.json; then
             echo "Files are different"
             echo "copy=true" >> $GITHUB_ENV
+            git branch
+            git config --global --list
           else
             echo "Files are the same"
             echo "copy=false" >> $GITHUB_ENV
