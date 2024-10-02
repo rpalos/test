@@ -31,8 +31,7 @@ jobs:
       - name: 'Copy file if different'
         if: env.copy == 'true'
         run: |
-          ls templates
-          cp templates/collection.novedades-hombre-D2022 templates/main-test/collection.novedades-hombre-D2022
+          cp templates/collection.novedades-hombre-D2022.json main-test/templates/collection.novedades-hombre-D2022.json
           echo "File copied to main-test branch"
 
       - name: 'Commit and push changes'
