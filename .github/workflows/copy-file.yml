@@ -42,6 +42,8 @@ jobs:
           git config --local user.name Rafael Palos
           git config --local user.password .Bormujos2024
           # git rm --cached main-test
+          git init
+          git checkout main-test
           git add templates/collection.novedades-hombre-D2022.json
           git status
           git commit -m "Update file from main branch"
