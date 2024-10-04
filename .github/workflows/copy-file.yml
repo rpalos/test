@@ -1,8 +1,6 @@
 name: 'Copy File if Different'
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   copy:
     name: Copy and push changes
