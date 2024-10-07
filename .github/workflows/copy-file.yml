@@ -9,7 +9,7 @@ on:
           description: 'Colección'
           type: string
 jobs:
-  copy:
+  handleError:
     name: Copy and push changes
     runs-on: ubuntu-latest
     steps:
