@@ -1,4 +1,4 @@
-name: 'Copy File if Different'
+name: 'Copy File if Differen'
 on:
   workflow_dispatch:
       inputs:
