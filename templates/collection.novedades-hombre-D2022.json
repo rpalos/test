@@ -1,48 +1,4 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
-{
-    "sections": {
-      "rocket_header_config_HWkxJi": {
-        "type": "rocket-header-config",
-        "settings": {
-          "overlap": true,
-          "overlap_mobile": true,
-          "color": true
-        }
-      },
-      "rocket_text_and_image_FHGmAy": {
-        "type": "rocket-text-and-image",
-        "blocks": {
-          "image_qydQ7t": {
-            "type": "image",
-            "settings": {
-              "type_media": "image",
-              "rocket_image_url": "shopify://products/c1-50373-college-raincoat-aw2425-red",
-              "image": "shopify://shop_images/260924_des_rain_m_01.jpg",
-              "image_mb": "shopify://shop_images/260924_mob_rain_m_01.jpg",
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "description": ""
-            }
-          }
-        },
-        "block_order": [
-          "image_qydQ7t"
-        ],
-        "settings": {
-          "padding_top": 100,
-          "padding_bottom": 0,
-          "padding_top_mb": 0,
-          "padding_bottom_mb": 0
-        }
-      },
-      "special_products_cards_xqgnkn": {
+
         "type": "special-products-cards",
         "blocks": {
           "product_PAit8F": {
