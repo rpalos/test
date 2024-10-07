@@ -9,14 +9,14 @@ on:
           description: 'Colección'
           type: string
 jobs:
-  handleError:
+  copy:
     name: Copy and push changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: copy
         env:
-          SRC_PATH: 'templates/${{ inputs.colection }}s'
+          SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET_BRANCH: '${{ inputs.site }}'
         run: |
           files=$(find $SRC_PATH -type f) # get the file list
