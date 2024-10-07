@@ -8,12 +8,6 @@ on:
         colection:
           description: 'Colección'
           type: string
-        username:
-          description: 'Configuración Git Username'
-          type: string
-        email:
-          description: 'Configuración Git Email'
-          type: string
 jobs:
   copy:
     name: Copy and push changes
@@ -26,8 +20,8 @@ jobs:
           TARGET_BRANCH: '${{ inputs.site }}'
         run: |
           files=$(find $SRC_PATH -type f) # get the file list
-          git config --global user.name ${{ inputs.username }}
-          git config --global user.email ${{ inputs.email }}
+          git config --global user.name rpalos
+          git config --global user.email rpalos@scalperscompany.com
           git fetch                         # fetch branches
           git checkout $TARGET_BRANCH       # checkout to your branch
           git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
