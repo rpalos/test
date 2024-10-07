@@ -1,6 +1,12 @@
 name: 'Copy File if Different'
 on:
-  workflow_dispatch
+  workflow_dispatch:
+      inputs:
+        site:
+          description: 'Rama Destino'
+          type: string
+        colection:
+          description: 'Colección'
 jobs:
   copy:
     name: Copy and push changes
@@ -9,8 +15,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: copy
         env:
-          SRC_PATH: 'templates/collection.novedades-hombre-D2022.json'
-          TARGET_BRANCH: 'main-test'
+          SRC_PATH: 'templates/${{ inputs.colection }}'
+          TARGET_BRANCH: '${{ inputs.site }}'
         run: |
           files=$(find $SRC_PATH -type f) # get the file list
           git config --global user.name rpalos
