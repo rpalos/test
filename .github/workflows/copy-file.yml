@@ -1,6 +1,6 @@
 name: 'Copy File if Different'
 on:
-  workflow_dispatch:
+  workflow_dispatch
 jobs:
   copy:
     name: Copy and push changes
