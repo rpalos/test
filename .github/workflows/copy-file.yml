@@ -2,10 +2,10 @@ name: 'Copy File'
 on:
   workflow_dispatch:
       inputs:
-        ramaOrigen:
+        rama_origen:
           description: 'Rama Origen'
           type: string
-        ramaDestino:
+        rama_destino:
           description: 'Rama Destino'
           type: string
         colection:
