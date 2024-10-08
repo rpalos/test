@@ -22,6 +22,7 @@ jobs:
           SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET_BRANCH: '${{ inputs.rama_destino }}'
         run: |
+          git checkout ${{ inputs.rama_origen }}
           files=$(find $SRC_PATH -type f) # get the file list
           git config --global user.name rpalos
           git config --global user.email rpalos@scalperscompany.com
