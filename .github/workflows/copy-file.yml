@@ -16,20 +16,15 @@ jobs:
     name: Copy and push changes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: copy
+      - uses: actions/checkout@v2 
+      - name: 'ECHO INPUTS'
+        run: |
+          echo ${{ inputs.rama_origen }}
+          echo ${{ inputs.rama_destino }}
+          echo ${{ inputs.inputs.colection }}
+      - name: 'Check MAIN-PT'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
-          TARGET_BRANCH: '${{ inputs.rama_destino }}'
+        if: contains('main-row main-pt', 'main-eu')
         run: |
-          git fetch                                                      # Fetch branches
-          git checkout ${{ inputs.rama_origen }}                         # Checkout your branch origin
-          files=$(find $SRC_PATH -type f)                                # Get the file list
-          git config --global user.name rpalos                           # Config username
-          git config --global user.email rpalos@scalperscompany.com      # Config email
-          git fetch                                                      # Fetch branches
-          git checkout $TARGET_BRANCH                                    # Checkout to your branch
-          git checkout ${{ inputs.rama_origen }} -- $files               # Copy files from the source branch
-          git add $SRC_PATH                                              # Add json
-          git diff-index --quiet HEAD ||  git commit -am "deploy files"  # Commit to the repository (ignore if no modification)
-          git push origin $TARGET_BRANCH                                 # Push to remote branch     
+          echo "ENTRA EN MAIN-PT"
