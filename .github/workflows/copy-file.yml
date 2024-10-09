@@ -30,13 +30,13 @@ jobs:
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET: '${{ inputs.rama_destino }}'
-        if: contains($TARGET, 'main-pt')
+        if: contains(${{ inputs.rama_destino }}, 'main-pt')
         run: |
           echo "ENTRA"
       - name: 'Check EU'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET: '${{ inputs.rama_destino }}'
-        if: contains($TARGET, 'main-eu')
+        if: contains(${{ inputs.rama_destino }}, 'main-eu')
         run: |
           echo "ENTRA"
