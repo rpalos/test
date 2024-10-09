@@ -18,14 +18,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       - name: 'ECHO INPUTS'
+        env:
+          SRC_PATH: 'templates/${{ inputs.colection }}'
+          TARGET: '${{ inputs.rama_destino }}'
         run: |
           echo ${{ inputs.rama_origen }}
           echo ${{ inputs.rama_destino }}
           echo ${{ inputs.inputs.colection }}
-      - name: 'Check MAIN-PT'
+          echo $TARGET
+      - name: 'Check'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET: '${{ inputs.rama_destino }}'
         if: contains('$TARGET', 'main-eu')
         run: |
-          echo "ENTRA EN MAIN-PT"
+          echo "ENTRA"
