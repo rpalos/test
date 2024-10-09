@@ -25,6 +25,7 @@ jobs:
       - name: 'Check MAIN-PT'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
-        if: contains('${{ inputs.rama_destino }}', 'main-eu')
+          TARGET: '${{ inputs.rama_destino }}'
+        if: contains('$TARGET', 'main-eu')
         run: |
           echo "ENTRA EN MAIN-PT"
