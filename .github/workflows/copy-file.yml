@@ -26,6 +26,7 @@ jobs:
           echo ${{ inputs.rama_destino }}
           echo ${{ inputs.colection }}
           echo $TARGET
+          echo env.TARGET
       - name: 'Check PT'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
