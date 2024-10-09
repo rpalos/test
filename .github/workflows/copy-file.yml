@@ -16,7 +16,10 @@ jobs:
     name: Copy and push changes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
+      - uses: actions/checkout@v2
+      - name: 'set env variable'
+        run: |
+          echo "PROJECT_TO_TEST=${{ inputs.rama_destino }}" >> $GITHUB_ENV
       - name: 'ECHO INPUTS'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
@@ -26,7 +29,7 @@ jobs:
           echo ${{ inputs.rama_destino }}
           echo ${{ inputs.colection }}
           echo $TARGET
-          echo env.TARGET
+          echo env.PROJECT_TO_TEST
       - name: 'Check PT'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
