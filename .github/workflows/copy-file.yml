@@ -26,10 +26,17 @@ jobs:
           echo ${{ inputs.rama_destino }}
           echo ${{ inputs.colection }}
           echo $TARGET
-      - name: 'Check'
+      - name: 'Check PT'
         env:
           SRC_PATH: 'templates/${{ inputs.colection }}'
           TARGET: '${{ inputs.rama_destino }}'
         if: contains('${inputs.rama_destino}', 'main-pt')
+        run: |
+          echo "ENTRA"
+      - name: 'Check EU'
+        env:
+          SRC_PATH: 'templates/${{ inputs.colection }}'
+          TARGET: '${{ inputs.rama_destino }}'
+        if: contains('${inputs.rama_destino}', 'main-eu')
         run: |
           echo "ENTRA"
